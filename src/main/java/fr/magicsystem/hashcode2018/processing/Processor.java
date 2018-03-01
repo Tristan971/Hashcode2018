@@ -8,8 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.nio.file.Path;
-
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -22,8 +20,10 @@ public class Processor {
         final long begin = System.currentTimeMillis();
 
         final InputData input = reader.readInput(inputFile);
-        final OutputData output = Algorithms.doSomething(input);
-        final Path outPath = writer.writeOutput(outputFile, output);
+
+        final OutputData output = Algorithms.applyAlgo(input);
+
+        writer.writeOutput(outputFile, output);
 
         final long end = System.currentTimeMillis();
 

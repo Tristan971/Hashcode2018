@@ -17,4 +17,5 @@ public class OutputWriter {
     private static String formatOutput(final OutputData outputData) {
         return "";
     }
+
 }

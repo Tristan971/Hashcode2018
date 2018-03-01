@@ -5,7 +5,7 @@ import fr.magicsystem.hashcode2018.classes.OutputData;
 
 public final class Algorithms {
 
-    public static OutputData doSomething(InputData input) {
+    public static OutputData applyAlgo(InputData input) {
         return null;
     }
 
