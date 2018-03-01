@@ -1,16 +1,18 @@
 package fr.magicsystem.hashcode2018;
 
+import fr.magicsystem.hashcode2018.processing.Processor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class Hashcode2018 {
 
-    private static ConfigurableApplicationContext CTX;
+    private static final String INPUT_FILE = "";
+    private static final String OUTPUT_FILE = "";
 
     public static void main(String[] args) {
-        CTX = SpringApplication.run(Hashcode2018.class, args);
+        final Processor processor = SpringApplication.run(Hashcode2018.class, args).getBean(Processor.class);
+        processor.processInput(INPUT_FILE, OUTPUT_FILE);
     }
 
 }
