@@ -45,4 +45,11 @@ public class Ride implements Comparable<Ride> {
             return this.latestStart < o.latestStart ? -1 : 1;
         }
     }
+
+    public int score(final int step, final int end, int bonus) {
+        int delay = latestStart - step;
+        int scorePotential = lenRide + bonus;
+        return delay == 0 ? 0 : scorePotential/delay;
+    }
+
 }

@@ -7,10 +7,7 @@ import fr.magicsystem.hashcode2018.classes.inmodel.Vehicle;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
@@ -18,6 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Algorithm {
 
     private final Queue<Ride> ridesLeft = new PriorityQueue<>();
+
     private final List<Vehicle> vehicles = new ArrayList<>();
 
     public OutputData applyAlgo(InputData input) {
@@ -73,12 +71,6 @@ public class Algorithm {
     private boolean wouldntCompromise(final Ride ride, final Vehicle vehicle, final int step) {
         final int timeleft = ride.getLatestFinish() - step;
         return vehicle.distanceTo(ride.getStartX(), ride.getStartY()) <= timeleft;
-    }
-
-    private void eliminateTooLate(Queue<Ride> ridesLeft, int step) {
-        while (ridesLeft.peek() != null && !ridesLeft.peek().isStillDoable(step)) {
-            ridesLeft.poll();
-        }
     }
 
     private static int nearest(final Vehicle v1, final Vehicle v2, final Ride ride) {
