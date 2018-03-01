@@ -15,13 +15,14 @@ public class Processor {
 
     private final InputReader reader;
     private final OutputWriter writer;
+    private final Algorithm algorithm;
 
     public final void processInput(final String inputFile, final String outputFile) {
         final long begin = System.currentTimeMillis();
 
         final InputData input = reader.readInput(inputFile);
 
-        final OutputData output = Algorithms.applyAlgo(input);
+        final OutputData output = algorithm.applyAlgo(input);
 
         writer.writeOutput(outputFile, output);
 
