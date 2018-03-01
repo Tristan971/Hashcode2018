@@ -19,6 +19,7 @@ public class Ride implements Comparable<Ride> {
     private final int latestFinish;
 
     private final int lenRide;
+    private final int latestStart;
 
     public Ride(int id, int startX, int startY, int finishX, int finishY, int earliestStart, int finish) {
         this.id = id;
@@ -29,11 +30,29 @@ public class Ride implements Comparable<Ride> {
         this.earliestStart = earliestStart;
         this.latestFinish = finish;
         this.lenRide = lenRide(startX, startY, finishX, finishY);
+        this.latestStart = latestFinish - lenRide;
     }
 
+    public boolean isStillDoable(final int step) {
+        return step + lenRide <= latestFinish;
+    }
 
     @Override
     public int compareTo(Ride o) {
-        return this.lenRide < o.lenRide ? 1 : -1;
+        final int deltaStart = this.latestStart - o.latestStart;
+
+        if (deltaStart < 0) {
+            return 1;
+        } else if (deltaStart == 0) {
+            if (this.lenRide < o.lenRide) {
+                return 1;
+            } else if (this.lenRide == o.lenRide) {
+                return 0;
+            } else {
+                return -1;
+            }
+        } else {
+            return -1;
+        }
     }
 }

@@ -31,4 +31,24 @@ public class Vehicle {
         return !isBusy.get().apply(curTime);
     }
 
+    public void moveStep(final int step) {
+        if (!isBusy.get().apply(step)) {
+            return;
+        }
+
+        final Ride lastRide = rides.get(rides.size() - 1);
+
+        final int endX = lastRide.getFinishX();
+        final int endY = lastRide.getFinishY();
+
+        if (this.posX.get() < endX) {
+            this.posX.incrementAndGet();
+        } else if (this.posX.get() > endX) {
+            this.posX.decrementAndGet();
+        } else if (this.posY.get() < endY) {
+            this.posY.incrementAndGet();
+        } else if (this.posY.get() > endY) {
+            this.posY.decrementAndGet();
+        }
+    }
 }
