@@ -23,7 +23,11 @@ public class Algorithm {
         while (ridesLeft.size() != 0 && step.get() <= input.getNbStepsSim()) {
             vehicles.stream()
                     .filter(vehicle -> vehicle.isAvailable(step.get()))
-                    .forEach(vehicle -> vehicle.submitRide(ridesLeft.poll(), step.get()));
+                    .forEach(vehicle -> {
+                        if (ridesLeft.peek() != null) {
+                            vehicle.submitRide(ridesLeft.poll(), step.get());
+                        }
+                    });
             step.incrementAndGet();
         }
 

@@ -25,14 +25,14 @@ public class OutputWriter {
     }
 
     private static String formatVehicle(final Vehicle vehicle) {
-        final int nbRides = vehicle.getRides().size();
         final String orderRides = vehicle.getRides().stream()
                 .filter(Objects::nonNull)
                 .mapToInt(Ride::getId)
                 .mapToObj(Integer::toString)
                 .collect(Collectors.joining(" "));
+        final int validRides = orderRides.split(" ").length;
 
-        return String.format("%d %s", nbRides, orderRides);
+        return String.format("%d %s", validRides, orderRides);
     }
 
 }
