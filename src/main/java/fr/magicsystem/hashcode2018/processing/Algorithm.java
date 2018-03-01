@@ -10,7 +10,7 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
-public final class Algorithm {
+public class Algorithm {
 
     private final Queue<Ride> ridesLeft = new PriorityQueue<>();
     private final List<Vehicle> vehicles = new ArrayList<>();
