@@ -19,7 +19,7 @@ public class Algorithm {
         ridesLeft.addAll(input.getRides());
         vehicles.addAll(input.getVehicles());
 
-        final AtomicInteger step = new AtomicInteger(1);
+        final AtomicInteger step = new AtomicInteger(0);
         while (ridesLeft.size() != 0 && step.get() <= input.getNbStepsSim()) {
             vehicles.stream()
                     .filter(vehicle -> vehicle.isAvailable(step.get()))
