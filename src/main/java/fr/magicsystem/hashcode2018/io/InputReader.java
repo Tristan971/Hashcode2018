@@ -5,6 +5,7 @@ import fr.magicsystem.hashcode2018.classes.inmodel.Ride;
 import fr.magicsystem.hashcode2018.classes.inmodel.Vehicle;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -45,7 +46,7 @@ public class InputReader {
                 }).collect(Collectors.toList());
 
         final List<Vehicle> vehicles = IntStream.range(0, nbVehicles)
-                .mapToObj(Vehicle::new)
+                .mapToObj(i -> new Vehicle(i, new ArrayList<>()))
                 .collect(Collectors.toList());
 
         return new InputData(rows, cols, bonusEarly, nbStepsSim, rides, vehicles);

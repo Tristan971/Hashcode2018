@@ -8,6 +8,6 @@ import java.util.List;
 @Data
 public class OutputData {
 
-    final List<Vehicle> vehicles;
+    private final List<Vehicle> vehicles;
 
 }
