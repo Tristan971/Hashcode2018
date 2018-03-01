@@ -2,7 +2,7 @@ package fr.magicsystem.hashcode2018.classes.inmodel;
 
 import lombok.Data;
 
-import static fr.magicsystem.hashcode2018.classes.inmodel.Utils.lenRide;
+import static fr.magicsystem.hashcode2018.classes.inmodel.Utils.distance;
 
 @Data
 public class Ride implements Comparable<Ride> {
@@ -29,7 +29,7 @@ public class Ride implements Comparable<Ride> {
         this.finishY = finishY;
         this.earliestStart = earliestStart;
         this.latestFinish = finish;
-        this.lenRide = lenRide(startX, startY, finishX, finishY);
+        this.lenRide = distance(startX, startY, finishX, finishY);
         this.latestStart = latestFinish - lenRide;
     }
 
