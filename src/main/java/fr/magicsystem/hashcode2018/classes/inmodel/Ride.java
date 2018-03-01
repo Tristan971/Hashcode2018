@@ -41,16 +41,11 @@ public class Ride implements Comparable<Ride> {
     public int compareTo(Ride o) {
         final int deltaStart = this.latestStart - o.latestStart;
 
+        // we need to go first
         if (deltaStart < 0) {
             return 1;
         } else if (deltaStart == 0) {
-            if (this.lenRide < o.lenRide) {
-                return 1;
-            } else if (this.lenRide == o.lenRide) {
-                return 0;
-            } else {
-                return -1;
-            }
+            return Integer.compare(o.lenRide, this.lenRide);
         } else {
             return -1;
         }
