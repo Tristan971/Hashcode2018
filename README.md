@@ -1,8 +1,5 @@
 # Hashcode2018
 
-We are the bestest for sure :D
+Source for the online qualification round on March 1st 2018.
 
--> Classes
-   -> Workflow-related classes. Getters, setters & constructor generated
--> Algorithms
-   -> Where we transform input to output
+Ended up at  31,298,985 points.
